@@ -1,0 +1,49 @@
+/*ul.a{*/
+/*    list-style-type: circle;*/
+/*}*/
+/*ul.b{*/
+/*    list-style-type: square;*/
+/*}*/
+/*ol.c{*/
+/*    list-style-type: upper-roman;*/
+/*}*/
+/*ol.d{*/
+/*    list-style-type: lower-alpha;*/
+/*}*/
+
+
+/*Đánh dấu các mục của danh sách bằng hình ảnh*/
+/*ul{*/
+/*    list-style-image: url("https://james.codegym.vn/pluginfile.php/1/theme_remui/logomini/1637071366/icon-small.png");*/
+/*}*/
+
+
+/*Vị trí đánh dấu các mục trong danh sách*/
+/*ul.a{*/
+/*    list-style-position: inside;*/
+/*}*/
+/*ul.b{*/
+/*    list-style-position: outside;*/
+/*}*/
+
+
+/*Danh sách thuộc tính rút gọn*/
+/*ul{*/
+/*    list-style: square inside url("https://james.codegym.vn/pluginfile.php/1/theme_remui/logomini/1637071366/icon-small.png");*/
+/*}*/
+
+
+/*Thiết lập màu sắc cho danh sách*/
+ol{
+    background: #ff9999;
+    padding: 20px;
+}
+
+ul{
+    background: #3399ff;
+    padding: 20px;
+}
+ul li{
+    background: #ffe5e5;
+    padding: 5px;
+}
