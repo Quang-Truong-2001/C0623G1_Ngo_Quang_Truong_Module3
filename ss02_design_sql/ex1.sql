@@ -1,48 +1,55 @@
-create database ss02;
-use ss02;
-create table nha_cung_cap(
-	ma_nha_cung_cap int primary key auto_increment,
-    ten_nha_cung_cap varchar(45),
-    dia_chi varchar(45),
-    so_dien_thoai varchar(45)   
+CREATE DATABASE ss02;
+USE ss02;
+CREATE TABLE nha_cung_cap (
+    ma_nha_cung_cap INT PRIMARY KEY AUTO_INCREMENT,
+    ten_nha_cung_cap VARCHAR(45) NOT NULL,
+    dia_chi VARCHAR(45) NOT NULL,
+    so_dien_thoai VARCHAR(45) NOT NULL
 );
-create table don_dat_hang(
-	so_don_hang int primary key auto_increment,
-    ngay_dat_hang datetime,
-    ma_nha_cung_cap int,
-    foreign key (ma_nha_cung_cap) references nha_cung_cap(ma_nha_cung_cap)    
+CREATE TABLE don_dat_hang (
+    so_don_hang INT PRIMARY KEY AUTO_INCREMENT,
+    ngay_dat_hang DATETIME NOT NULL,
+    ma_nha_cung_cap INT,
+    FOREIGN KEY (ma_nha_cung_cap)
+        REFERENCES nha_cung_cap (ma_nha_cung_cap)
 );
-create table phieu_xuat(
-	so_phieu_xuat int primary key auto_increment,
-    ngay_xuat datetime
+CREATE TABLE phieu_xuat (
+    so_phieu_xuat INT PRIMARY KEY AUTO_INCREMENT,
+    ngay_xuat DATETIME NOT NULL
 );
-create table phieu_nhap(
-	so_phieu_nhap int primary key auto_increment,
-    ngay_nhap datetime
+CREATE TABLE phieu_nhap (
+    so_phieu_nhap INT PRIMARY KEY AUTO_INCREMENT,
+    ngay_nhap DATETIME NOT NULL
 );
-create table vat_tu(
-	ma_vat_tu int primary key auto_increment,
-    ten_vat_tu varchar(45)
+CREATE TABLE vat_tu (
+    ma_vat_tu INT PRIMARY KEY AUTO_INCREMENT,
+    ten_vat_tu VARCHAR(45) NOT NULL
 );
-create table nhap_vat_tu(
-    so_phieu_nhap int,
-    foreign key (so_phieu_nhap) references phieu_nhap(so_phieu_nhap),
-    ma_vat_tu int,
-    foreign key (ma_vat_tu) references vat_tu(ma_vat_tu),
-    don_gia_nhap double,
-    so_luong_nhap int
+CREATE TABLE nhap_vat_tu (
+    so_phieu_nhap INT,
+    FOREIGN KEY (so_phieu_nhap)
+        REFERENCES phieu_nhap (so_phieu_nhap),
+    ma_vat_tu INT,
+    FOREIGN KEY (ma_vat_tu)
+        REFERENCES vat_tu (ma_vat_tu),
+    don_gia_nhap DOUBLE NOT NULL,
+    so_luong_nhap INT NOT NULL
 );
-create table xuat_vat_tu(
-	so_phieu_xuat int,
-    foreign key (so_phieu_xuat) references phieu_xuat(so_phieu_xuat),
-    ma_vat_tu int,
-    foreign key (ma_vat_tu) references vat_tu(ma_vat_tu),
-    don_gia_xuat double,
-    so_luong_xuat int
+CREATE TABLE xuat_vat_tu (
+    so_phieu_xuat INT,
+    FOREIGN KEY (so_phieu_xuat)
+        REFERENCES phieu_xuat (so_phieu_xuat),
+    ma_vat_tu INT,
+    FOREIGN KEY (ma_vat_tu)
+        REFERENCES vat_tu (ma_vat_tu),
+    don_gia_xuat DOUBLE NOT NULL,
+    so_luong_xuat INT NOT NULL
 );
-create table dat_vat_tu(
-	so_don_hang int,
-    foreign key (so_don_hang) references don_dat_hang(so_don_hang),
-    ma_vat_tu int,
-    foreign key (ma_vat_tu) references vat_tu(ma_vat_tu)
+CREATE TABLE dat_vat_tu (
+    so_don_hang INT,
+    FOREIGN KEY (so_don_hang)
+        REFERENCES don_dat_hang (so_don_hang),
+    ma_vat_tu INT,
+    FOREIGN KEY (ma_vat_tu)
+        REFERENCES vat_tu (ma_vat_tu)
 );

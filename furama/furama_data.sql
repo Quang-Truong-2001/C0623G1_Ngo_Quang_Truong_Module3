@@ -40,6 +40,41 @@ INSERT INTO khach_hang(ho_ten, ngay_sinh, gioi_tinh, so_cmnd, so_dien_thoai, ema
 		  ('Nguyễn Thị Hào','1999-04-08',0,'965656433','0763212345','haohao99@gmail.com','55 Nguyễn Văn Linh, Kon Tum',3),
 		  ('Trần Đại Danh','1994-07-01',1,'432341235','0643343433','danhhai99@gmail.com','24 Lý Thường Kiệt, Quảng Ngãi',1),
 		  ('Nguyễn Tâm Đắc','1989-07-01',1,'344343432','0987654321','dactam@gmail.com','22 Ngô Quyền, Đà Nẵng',2);
+insert into dich_vu(ten_dich_vu, dien_tich, chi_phi_thue, so_nguoi_toi_da, tieu_chuan_phong, mo_ta_tien_nghi_khac, dien_tich_ho_boi, so_tang, dich_vu_mien_phi_di_kem,  ma_kieu_thue, ma_loai_dich_vu)
+	values('Villa Beach Front',25000,1000000,10,'vip','Có hồ bơi', 500, 4,'null', 3, 1),
+		  ('House Princess 01',14000,5000000,7,'vip','Có thêm bếp nướng',null,3,'null',2 ,2 ),
+		  ('Room Twin 01',5000,1000000,2,'normal','Có tivi',null,null,1, 4 ,3 ),
+		  ('Villa No Beach Front',22000,9000000,8,'normal','Có hồ bơi',null,3,1, 3, 1),
+		  ('House Princess 02',10000,4000000,5,'normal','Có thêm bếp nướng',null,2,'null', 3, 2),
+		  ('Room Twin 02',3000,900000,2,'normal','Có tivi',null,null,1, 4 , 3);
+insert into hop_dong(ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ma_nhan_vien, ma_khach_hang, ma_dich_vu)
+	values('2020-12-08','2020-12-08',0,     3,1,3),
+		  ('2020-07-14','2020-07-21',200000,7,3,1),
+		  ('2021-03-15','2021-03-17',50000,3,4,2),
+		  ('2021-01-14','2021-01-18',100000,7,5,5),
+		  ('2021-07-14','2021-07-15',0      ,7,2,6),
+		  ('2021-06-01','2021-06-03',0		,7,7,6),
+		  ('2021-09-02','2021-09-05',100000	,7,4,4),
+		  ('2021-06-17','2021-06-18',150000	,3,4,1),
+		  ('2020-11-19','2020-11-19',0		,3,4,3),
+		  ('2021-04-12','2021-04-14',0		,1,3,5),
+		  ('2021-04-25','2021-04-25',0		,2,2,1),
+		  ('2021-05-25','2021-05-27',0		,7,10,1);
+insert into hop_dong_chi_tiet(so_luong, ma_hop_dong, ma_dich_vu_di_kem)
+	values(5,2,4),
+		  (8,2,5),
+		  (15,2, 6),
+		  (1,3,1),
+		  (11,3,2),
+		  (1,1,3),
+		  (2,1,2),
+          (2,12,2);
+
+
+
+-- update khach_hang 
+-- set email='thihao07@gmail.com'
+-- where ma_khach_hang=1;
           
 
 

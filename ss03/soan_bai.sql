@@ -1,5 +1,8 @@
 use c0623g1_module_3;
--- select s.name, c.name 
+select *
+from student
+where substring_index(student.name," ",-1) like "h%";
+select s.name, c.name 
 -- 	from student as s
 --     left join class as c
 --     on s.class_id=c.id;

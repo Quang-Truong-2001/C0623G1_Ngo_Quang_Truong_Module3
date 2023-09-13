@@ -36,14 +36,16 @@ CREATE TABLE loai_khach (
     ten_loai_khach VARCHAR(45)
 );
 CREATE TABLE khach_hang (
-    ma_khach_hang INT,
-    FOREIGN KEY (ma_khach_hang)
+    ma_khach_hang INT PRIMARY KEY AUTO_INCREMENT,
+    ma_loai_khach INT,
+    FOREIGN KEY (ma_loai_khach)
         REFERENCES `loai_khach` (ma_loai_khach),
     ho_ten VARCHAR(45),
     ngay_sinh DATE,
     gioi_tinh BIT(1),
     so_cmnd VARCHAR(45),
     so_dien_thoai VARCHAR(45),
+    email VARCHAR(45),
     dia_chi VARCHAR(45)
 );
 CREATE TABLE kieu_thue (
@@ -76,7 +78,7 @@ CREATE TABLE dich_vu_di_kem (
     ma_dich_vu_di_kem INT PRIMARY KEY AUTO_INCREMENT,
     ten_dich_vu_di_kem VARCHAR(45),
     gia DOUBLE,
-    don_vi VARCHAR(10),
+    don_vi VARCHAR(45),
     trang_thai VARCHAR(45)
 );
 CREATE TABLE hop_dong (
