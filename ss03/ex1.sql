@@ -66,7 +66,12 @@ SELECT
 FROM
     student
 WHERE
-    student_name LIKE 'h%'ả các thông tin môn học có credit trong khoảng từ 3-5.
+    student_name LIKE 'h%';
+    
+    
+    -- 2. Hiển thị các thông tin môn học có credit trong khoảng từ 3-5.
+    
+    
   select * 
   from subject
   where credit between 3 and 5;
@@ -77,7 +82,7 @@ SELECT
 FROM
     class
 WHERE
-    MONTH(start_date) >= '12';
+    MONTH(start_date) = '12';
   
   -- 4.Thay đổi mã lớp(ClassID) của sinh viên có tên ‘Hung’ là 2.
   set sql_safe_updates=0;
@@ -85,7 +90,7 @@ UPDATE student
 SET 
     class_id = 2
 WHERE
-    student_name = 'hung';
+    student_name = 'Hung';
   set sql_safe_updates=1;
   -- 5. hiển thị các thông tin: StudentName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi 
   -- (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
@@ -97,5 +102,5 @@ FROM
     mark ON student.student_id = mark.student_id
         JOIN
     subject ON mark.subject_id = subject.subject_id
-ORDER BY mark.mark DESC , SUBSTRING_INDEX(student.student_name, ' ', - 1) ASC;
+ORDER BY mark.mark DESC , student.student_name ASC;
   

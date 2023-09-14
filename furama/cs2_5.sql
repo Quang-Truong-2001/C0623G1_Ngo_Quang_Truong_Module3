@@ -30,7 +30,7 @@ group by khach_hang.ma_khach_hang;
 --  Số Lượng * Giá, với Số Lượng và Giá là từ bảng dich_vu_di_kem, hop_dong_chi_tiet)
 --  cho tất cả các khách hàng đã từng đặt phòng. (những khách hàng nào chưa từng đặt phòng 
 --  cũng phải hiển thị ra).
-select k.ma_khach_hang, k.ho_ten, l.ten_loai_khach, h.ma_hop_dong, d.ten_dich_vu, h.ngay_lam_hop_dong,(d.chi_phi_thue+ifnull(hc.so_luong,0)*ifnull(dk.gia,0)) as total_price
+select k.ma_khach_hang, k.ho_ten, l.ten_loai_khach, h.ma_hop_dong, d.ten_dich_vu, h.ngay_lam_hop_dong,(ifnull(d.chi_phi_thue,0)+sum(ifnull(hc.so_luong,0)*ifnull(dk.gia,0))) as total_price
 from khach_hang k
 join loai_khach l
 on	k.ma_loai_khach=l.ma_loai_khach
@@ -44,4 +44,5 @@ left join  hop_dong_chi_tiet hc
 on h.ma_hop_dong=hc.ma_hop_dong
 left join  dich_vu_di_kem dk
 on hc.ma_dich_vu_di_kem=dk.ma_dich_vu_di_kem
+group by k.ma_khach_hang, h.ma_hop_dong
 order by k.ma_khach_hang;
