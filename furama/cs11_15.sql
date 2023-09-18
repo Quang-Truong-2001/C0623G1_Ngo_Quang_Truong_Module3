@@ -83,6 +83,17 @@ group by hc.ma_dich_vu_di_kem
 order by sum(hc.so_luong) desc)
 SELECT * FROM source as s2 WHERE s2.tong_so = 1;
 
+select hc.ma_dich_vu_di_kem, dk.ten_dich_vu_di_kem, sum(hc.so_luong) as tong_so
+from hop_dong h
+join hop_dong_chi_tiet hc
+on h.ma_hop_dong=hc.ma_hop_dong
+join dich_vu_di_kem dk
+on hc.ma_dich_vu_di_kem=dk.ma_dich_vu_di_kem
+group by hc.ma_dich_vu_di_kem
+having tong_so=1
+order by sum(hc.so_luong) desc;
+
+
 -- 15.	Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, ho_ten, ten_trinh_do,
 --  ten_bo_phan, so_dien_thoai, dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 
@@ -107,5 +118,7 @@ join trinh_do t
 on n.ma_trinh_do=t.ma_trinh_do
 join bo_phan b
 on n.ma_bo_phan=b.ma_bo_phan
+where year(h.ngay_lam_hop_dong) between 2020 and 2021
 group by h.ma_nhan_vien
 having tong_so_hop_dong<=3;
+
