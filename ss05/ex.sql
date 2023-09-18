@@ -17,9 +17,6 @@ values (201,'tao', 10000, 5 , 'abc', 1 ),
 	   (202,'cam', 10000, 4 , 'abc', 1 ),
        (203,'chanh', 15000, 6 , 'abc', 1 );
 -- Bước 3:
--- Tạo Unique Index trên bảng Products (sử dụng cột productCode để tạo chỉ mục)
-create unique index index_product_code
-on products(product_code);
 -- Tạo Composite Index trên bảng Products (sử dụng 2 cột productName và productPrice)
 create unique index index_product
 on products(product_name, product_price);
