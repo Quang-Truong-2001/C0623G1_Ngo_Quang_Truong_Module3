@@ -40,15 +40,19 @@ where d.ma_dich_vu not in (
 and year(h.ngay_lam_hop_dong)=2020 and quarter(h.ngay_lam_hop_dong)=4
 group by ma_hop_dong;
 -- 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
-WITH source as (select hc.ma_dich_vu_di_kem, dk.ten_dich_vu_di_kem, sum(hc.so_luong) as tong_so
-from hop_dong h
-join hop_dong_chi_tiet hc
-on h.ma_hop_dong=hc.ma_hop_dong
-join dich_vu_di_kem dk
-on hc.ma_dich_vu_di_kem=dk.ma_dich_vu_di_kem
-group by hc.ma_dich_vu_di_kem order by sum(hc.so_luong) desc)
-SELECT * FROM source as s1 WHERE s1.tong_so = (
-	SELECT MAX(s2.tong_so) FROM source as s2 GROUP BY s2.ma_dich_vu_di_kem LIMIT 1
+with source as (
+	select hc.ma_dich_vu_di_kem, dk.ten_dich_vu_di_kem, sum(hc.so_luong) as so_luong
+	from dich_vu_di_kem dk
+	join hop_dong_chi_tiet hc
+	on dk.ma_dich_vu_di_kem=hc.ma_dich_vu_di_kem
+	group by hc.ma_dich_vu_di_kem
+    order by so_luong desc
+)
+select * 
+from source as s1 
+where s1.so_luong= (
+	select max(s2.so_luong)
+    from source as s2
 );
 
 -- SELECT * FROM (
