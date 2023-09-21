@@ -5,34 +5,42 @@ import java.util.*;
 public class giaithuat {
     public static void main(String[] args) {
         int[][] arr = {
-                {2, 3, 9, 8},
-                {7, 33, 2, 2},
-                {1, 2, 6, 51}
+                {1,2,8,43},
+                {9,4,53,7},
+                {11,6,4,0},
+                {1,2,6,51}
         };
-        int count;
-        Set<Integer> set = new LinkedHashSet<>();
-        Queue<Integer> integers=new LinkedList<>();
-        List<Integer> list=new ArrayList<>();
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-//                System.out.println(arr[i][j]);
-                count = 0;
-                for (int k = 2; k < arr[i][j]; k++) {
-                    if (arr[i][j] % k == 0) {
-                        count++;
+        int[] a=test(arr);
+        for(int i=0;i< a.length;i++){
+            System.out.println(a[i]);
+        }
+
+    }
+    public static int[] test(int[][] arr){
+        int c;
+        Set<Integer> s=new LinkedHashSet<>();
+        Queue<Integer> q=new PriorityQueue<>();
+        for (int i=0;i< arr.length;i++){
+            for(int j=0;j<arr[i].length;j++){
+                c=0;
+                for(int k=2;k<arr[i][j];k++){
+
+                    if(arr[i][j]%k==0){
+                        c++;
                     }
                 }
-                if (count == 0) {
-                    list.add(arr[i][j]);
+                if(c==0 && arr[i][j]>1){
+                    s.add(arr[i][j]);
                 }
             }
         }
-        int[] a = new int[list.size()];
-
-        for(int i=0;i< list.size();i++){
-            integers.add(list.get(i));
+        for(Integer b:s){
+            q.add(b);
         }
-        for()
-
+        int[] a=new int[s.size()];
+        for(int i=0;i<a.length;i++){
+            a[i]=q.poll();
+        }
+        return a;
     }
 }
