@@ -1,0 +1,58 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/*.box-yellow {*/
+/*    background: yellow;*/
+/*    position: relative;*/
+
+/*}*/
+/*.box-green {*/
+/*    background-color: green;*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*}*/
+
+/*.box-red {*/
+/*    position: relative;*/
+/*    background: red;*/
+/*    left: 0;*/
+/*}*/
+body{
+    height: 2000px;
+    display: flex;
+}
+.box{
+    margin-left: 400px;
+    background-color: #0a58ca;
+    width: 200px;
+    height: 500px;
+}
+.box1{
+    background-color: pink;
+    width: 200px;
+    height: 70px;
+    position: sticky;
+    top: 0;
+}
+/*body {*/
+/*    height: 2000px;*/
+/*}*/
+
+/*.cha {*/
+/*    width: 500px;*/
+/*    height: 1000px;*/
+/*    margin: 30px auto;*/
+/*    padding: 10px;*/
+/*    background-color: red;*/
+/*}*/
+
+/*.con {*/
+/*    width: 480px;*/
+/*    height: 300px;*/
+/*    margin-top: 30px;*/
+/*    background-color: #000000;*/
+/*    top: 0;*/
+/*    position: fixed ;*/
+/*}*/
