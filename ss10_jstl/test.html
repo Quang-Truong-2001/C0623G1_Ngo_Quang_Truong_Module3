@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/servlet">
+  <div style="display: flex">
+    <label style="min-width: 100px" for="num1">First operand:</label>
+    <input type="number" name="number1" id="num1">
+  </div>
+  <br>
+  <br>
+  <div style="display: flex">
+    <label style="min-width: 100px" for="num1">Operator:</label>
+    <select name="math" id="math2number">
+      <option value="Addition">Addition</option>
+      <option value="Subtraction">Subtraction</option>
+      <option value="Multiplication">Multiplication</option>
+      <option value="Division">Division</option>
+    </select>
+  </div>
+  <br>
+  <br>
+  <label for="num2">Second operand: </label>
+  <input type="number" name="number2" id="num2">
+
+  <input type="submit" value="Calculate">
+</form>
+</body>
+</html>

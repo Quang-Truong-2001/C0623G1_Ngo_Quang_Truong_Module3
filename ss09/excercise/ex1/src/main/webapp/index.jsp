@@ -6,16 +6,17 @@
 </head>
 <body>
     <form action="/discount-servlet">
-        <label for="description">Mô tả sản phẩm</label>
-        <input type="text" name="description" id="description"/>
-        <br>
-        <label for="listPrice">Giá niêm yết</label>
+        <label for="listPrice">Giá niêm yết:</label>
         <input type="number" name="listPriceProduct" id="listPrice"/>
         <br>
-        <label for="discountPercent">Giá niêm yết</label>
+        <br>
+        <label for="discountPercent">Tỷ lệ chiết khấu:</label>
         <input type="number" name="discountPercentProduct" id="discountPercent"/>
         <input type="submit" value="Chiết khấu">
     </form>
-    Chiết khấu: ${result}
+    <br>
+    Chiết khấu: ${result}VND
+    <br>
+    Giá sản phẩm sau khi giảm giá: ${priceProduct}VND
 </body>
 </html>
