@@ -94,6 +94,7 @@ public class Servlet extends HttpServlet {
     }
 
     private void editProduct(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         Double price = Double.valueOf(request.getParameter("price"));
@@ -116,6 +117,5 @@ public class Servlet extends HttpServlet {
         request.setAttribute("find", service.find(find));
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/find.jsp");
         requestDispatcher.forward(request, response);
-
     }
 }

@@ -1,14 +1,14 @@
-package com.example.product_manager.repository.impl;
+package com.example.again.repository.impl;
 
-import com.example.product_manager.model.Product;
-import com.example.product_manager.repository.IProductRepository;
+import com.example.again.model.Product;
+import com.example.again.repository.IRepositoryProduct;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProductRepositoryImpl implements IProductRepository {
+public class RepositoryProductImpl implements IRepositoryProduct {
     private static Map<Integer,Product> products;
     static {
         products=new HashMap<>();
@@ -25,8 +25,7 @@ public class ProductRepositoryImpl implements IProductRepository {
 
     @Override
     public void save(Product product) {
-        product.setId(products.size()+1);
-        products.put(products.size()+1,product);
+        products.put(product.getId(), product);
     }
 
     @Override

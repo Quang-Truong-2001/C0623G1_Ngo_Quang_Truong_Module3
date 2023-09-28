@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Save</title>
+    <title>Update</title>
 </head>
 <body>
 <h1>Cập nhật thông tin sản phẩm</h1>
