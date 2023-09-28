@@ -1,6 +1,6 @@
-package com.example.ss9.controller;
+package com.example.demoteacher.controller;
 
-import com.example.ss9.model.Student;
+import com.example.demoteacher.model.Student;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "StudentServlet", value = "/student-servlet")
-public class StudentServlet extends HttpServlet {
+@WebServlet(name = "Servlet", value = "/student-servlet")
+public class Servlet extends HttpServlet {
     private static List<Student> studentList;
     static {
         studentList = new ArrayList<>();
@@ -20,23 +20,21 @@ public class StudentServlet extends HttpServlet {
         studentList.add(new Student(9,"Loan", false, 8));
         studentList.add(new Student(10,"Công", true, 4));
     }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if(action == null){
-            action = "";
+        String action=request.getParameter("action");
+        if(action==null){
+            action="";
         }
         switch (action){
             case "create":
-                showFormCreate(request, response);
+                showFormCreate(request,response);
+                break;
             default:
-                showListStudent(request, response);
+                showListStudent(request,response);
+
         }
-
-
     }
-
     private void showListStudent(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("studentList",studentList);
@@ -54,26 +52,23 @@ public class StudentServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if(action == null){
-            action = "";
+        String action=request.getParameter("action");
+        if(action==null){
+            action="";
         }
         switch (action){
             case "create":
-                create(request, response);
+                create(request,response);
+
         }
     }
-
     private void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
-        boolean gender = "male".equals(request.getParameter("nam"));
+        boolean gender = "male".equals(request.getParameter("gender"));
         double point = Double.parseDouble(request.getParameter("point"));
-        Student student = new Student(id,name,gender,point);
+        Student student = new Student(id, name, gender, point);
         studentList.add(student);
-//        showListStudent(request,response);
         response.sendRedirect("/student-servlet");
-//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/list.jsp");
-//        requestDispatcher.forward(request,response);
     }
 }
