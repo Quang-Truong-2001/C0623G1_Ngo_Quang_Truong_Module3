@@ -8,10 +8,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.ResultSet;
 
-@WebServlet(name = "servlet", value = "/servlet")
-public class Servlet extends HttpServlet {
+@WebServlet(name = "servlet", value = "/servlet-user")
+public class ServletUser extends HttpServlet {
     private final static IServiceUser service=new ServiceUserImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,10 +42,6 @@ public class Servlet extends HttpServlet {
         RequestDispatcher requestDispatcher=request.getRequestDispatcher("/save.jsp");
         requestDispatcher.forward(request,response);
     }
-    private void showFormFind(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher=request.getRequestDispatcher("/find.jsp");
-        requestDispatcher.forward(request,response);
-    }
     private void showFormUpdate(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("user",service.detail(id));
@@ -57,7 +52,7 @@ public class Servlet extends HttpServlet {
     private void delete(HttpServletRequest request,HttpServletResponse response) throws IOException {
         int id= Integer.parseInt(request.getParameter("id"));
         service.delete(id);
-        response.sendRedirect("/servlet");
+        response.sendRedirect("/servlet-user");
     }
 
     @Override
@@ -85,7 +80,7 @@ public class Servlet extends HttpServlet {
         String country=request.getParameter("country");
         User user=new User(name,email,country);
         service.save(user);
-        response.sendRedirect("/servlet");
+        response.sendRedirect("/servlet-user");
     }
     private void find(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String country=request.getParameter("country");
@@ -108,6 +103,6 @@ public class Servlet extends HttpServlet {
         user.setEmail(email);
         user.setCountry(country);
         service.update(user);
-        response.sendRedirect("/servlet");
+        response.sendRedirect("/servlet-user");
     }
 }

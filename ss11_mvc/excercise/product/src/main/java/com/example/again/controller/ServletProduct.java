@@ -9,8 +9,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "servlet", value = "/servlet")
-public class Servlet extends HttpServlet {
+@WebServlet(name = "servlet", value = "/servlet-product")
+public class ServletProduct extends HttpServlet {
     private static IServiceProduct serviceProduct = new ServiceProductImpl();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -51,7 +51,7 @@ public class Servlet extends HttpServlet {
     private void delete(HttpServletRequest request,HttpServletResponse response) throws IOException {
         int id= Integer.parseInt(request.getParameter("id"));
         serviceProduct.delete(id);
-        response.sendRedirect("/servlet");
+        response.sendRedirect("/servlet-product");
     }
 
     @Override
@@ -67,7 +67,8 @@ public class Servlet extends HttpServlet {
             case "find":
                 findProduct(request,response);
                 break;
-
+            default:
+                break;
 
         }
     }
@@ -79,7 +80,7 @@ public class Servlet extends HttpServlet {
         String producer=request.getParameter("producer");
         Product product=new Product(id,name,price,description,producer);
         serviceProduct.save(product);
-        response.sendRedirect("/servlet");
+        response.sendRedirect("/servlet-product");
     }
     private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id= Integer.parseInt(request.getParameter("id"));
@@ -87,12 +88,9 @@ public class Servlet extends HttpServlet {
         double price= Double.parseDouble(request.getParameter("price"));
         String description=request.getParameter("description");
         String producer=request.getParameter("producer");
-        Product product= serviceProduct.detail(id);
-        product.setName(name);
-        product.setPrice(price);
-        product.setDescription(description);
-        product.setProducer(producer);
-        response.sendRedirect("/servlet");
+        Product product=new Product(id,name,price,description,producer);
+        serviceProduct.update(id,product);
+        response.sendRedirect("/servlet-product");
     }
     private void findProduct(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String find = request.getParameter("find");

@@ -37,7 +37,7 @@
     </c:forEach>
     </tbody>
   </table>
-  <button type="button" class="btn btn-info"><a style="color: white" href="/servlet">Return</a></button>
+  <button type="button" class="btn btn-info"><a style="color: white" href="/servlet-user">Return</a></button>
 
 </div>
 </body>

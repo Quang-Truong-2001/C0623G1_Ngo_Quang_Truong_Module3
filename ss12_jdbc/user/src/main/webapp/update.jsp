@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-      <form action="/servlet?action=update" method="post">
+      <form action="/servlet-user?action=update" method="post">
           <input type="hidden" name="id" value="${id}">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>

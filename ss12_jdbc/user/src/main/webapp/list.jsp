@@ -16,7 +16,7 @@
 <body>
 <div class="container">
   <h1>Danh sách người dùng</h1>
-  <form action="/servlet?action=find" method="post">
+  <form action="/servlet-user?action=find" method="post">
     <div class="mb-3">
       <label for="country" class="form-label">Country</label>
       <input type="text" class="form-control" name="country" id="country">
@@ -40,13 +40,13 @@
         <td>${user.name}</td>
         <td>${user.email}</td>
         <td>${user.country}</td>
-        <td><button type="button" class="btn btn-info"><a style="color: white" href="/servlet?action=update&id=${user.id}">Sửa</a></button></td>
-        <td><button type="button" class="btn btn-info"><a style="color: white" href="/servlet?action=delete&id=${user.id}">Xóa</a></button></td>
+        <td><button type="button" class="btn btn-info"><a style="color: white" href="/servlet-user?action=update&id=${user.id}">Sửa</a></button></td>
+        <td><button type="button" class="btn btn-info"><a style="color: white" href="/servlet-user?action=delete&id=${user.id}">Xóa</a></button></td>
       </tr>
     </c:forEach>
     </tbody>
   </table>
-  <button type="button" class="btn btn-info"><a style="color: white" href="/servlet?action=save">Thêm</a></button>
+  <button type="button" class="btn btn-info"><a style="color: white" href="/servlet-user?action=save">Thêm</a></button>
 </div>
 </body>
 </html>

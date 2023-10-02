@@ -16,7 +16,7 @@
 <body>
 <h1>Cập nhật thông tin sản phẩm</h1>
 <div class="container">
-  <form action="/servlet?action=edit" method="post">
+  <form action="/servlet-product?action=edit" method="post">
     <input type="hidden" name="id" value="${product.id}">
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>

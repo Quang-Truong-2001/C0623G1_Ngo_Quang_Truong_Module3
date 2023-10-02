@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-  <form action="/servlet?action=find" method="post">
+  <form action="/servlet-product?action=find" method="post">
     <label for="find">Nhập tên sản phẩm cần tìm</label>
     <input type="text" name="find" id="find">
     <input type="submit" value="Tìm">
@@ -40,14 +40,14 @@
         <td>${product.description}</td>
         <td>${product.producer}</td>
         <td>
-          <button type="button" class="btn btn-primary"><a style="color: white" href="/servlet?action=edit&id=${product.id}">Sửa</a></button>
-          <button type="button" class="btn btn-primary"><a style="color: white" href="/servlet?action=delete&id=${product.id}">Xóa</a></button>
+          <button type="button" class="btn btn-primary"><a style="color: white" href="/servlet-product?action=edit&id=${product.id}">Sửa</a></button>
+          <button type="button" class="btn btn-primary"><a style="color: white" href="/servlet-product?action=delete&id=${product.id}">Xóa</a></button>
         </td>
       </tr>
     </c:forEach>
     </tbody>
   </table>
 </div>
-<button type="button" class="btn btn-primary"><a style="color: white" href="/servlet?action=create">Thêm</a></button>
+<button type="button" class="btn btn-primary"><a style="color: white" href="/servlet-product?action=create">Thêm</a></button>
 </body>
 </html>

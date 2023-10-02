@@ -39,6 +39,6 @@
     </tbody>
   </table>
 </div>
-<button type="button" class="btn btn-primary"><a style="color: white" href="/servlet">Return</a></button>
+<button type="button" class="btn btn-primary"><a style="color: white" href="/servlet-product">Return</a></button>
 </body>
 </html>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <a href="/servlet">Danh sách người dùng</a>
+    <a href="/servlet-user">Danh sách người dùng</a>
 </div>
 
 

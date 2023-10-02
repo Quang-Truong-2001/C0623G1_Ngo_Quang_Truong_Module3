@@ -6,6 +6,6 @@
     <title></title>
 </head>
 <body>
-<a href="/servlet">Danh sách sản phẩm</a>
+<a href="/servlet-product">Danh sách sản phẩm</a>
 </body>
 </html>

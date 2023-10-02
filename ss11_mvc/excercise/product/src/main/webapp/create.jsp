@@ -15,7 +15,7 @@
 </head>
 <body>
 <div class="container">
-  <form action="/servlet?action=create" method="post">
+  <form action="/servlet-product?action=create" method="post">
     <div class="mb-3">
       <label for="id" class="form-label">ID</label>
       <input type="number" name="id" class="form-control" id="id">

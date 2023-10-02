@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
 </head>
 <body>
 
-<form action="/servlet">
+<form action="/servlet-calculator">
     <fieldset>
         <legend>Caculator</legend>
         <label for="num1">First operand:</label>
@@ -31,5 +32,10 @@
 </form>
 <br>
 Result: ${result}
+
+
+
+
+
 </body>
 </html>
