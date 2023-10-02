@@ -10,14 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RepositoryUserImpl implements IRepositoryUser {
-    private static final String SELECT="select * from user_manager order by `name`;";
-    private static final String DELETE="delete from user_manager \n" +
-            "where id=?;";
+    private static final String SELECT="call getList()";
+    private static final String DELETE="call delete_user(?);";
     private static final String INSERT="insert into user_manager(`name`,email,country) \n" +
             "values(?,?,?);";
-    private static final String UPDATE="update user_manager \n" +
-            "set `name`=?, email=?, country=? \n" +
-            "where id=?;";
+    private static final String UPDATE="call update_user(?,?,?,?);";
     private static final String DETAIL="select * from user_manager \n" +
             "where id=?;";
 
@@ -43,13 +40,12 @@ public class RepositoryUserImpl implements IRepositoryUser {
     }
     @Override
     public List<User> getList() {
-
-        Connection connection= BaseRepository.getConnection();
+        Connection connection=BaseRepository.getConnection();
         List<User> list=new ArrayList<>();
         User user;
         try {
-            Statement statement=connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SELECT);
+            CallableStatement callableStatement=connection.prepareCall(SELECT);
+            ResultSet resultSet=callableStatement.executeQuery();
             while (resultSet.next()){
                 int id=resultSet.getInt("id");
                 String name=resultSet.getString("name");
@@ -94,12 +90,12 @@ public class RepositoryUserImpl implements IRepositoryUser {
     public void update(User user) {
         Connection connection=BaseRepository.getConnection();
         try {
-            PreparedStatement preparedStatement=connection.prepareStatement(UPDATE);
-            preparedStatement.setString(1,user.getName());
-            preparedStatement.setString(2,user.getEmail());
-            preparedStatement.setString(3,user.getCountry());
-            preparedStatement.setInt(4,user.getId());
-            preparedStatement.executeUpdate();
+            CallableStatement callableStatement=connection.prepareCall(UPDATE);
+            callableStatement.setString(1, user.getName());
+            callableStatement.setString(2, user.getEmail());
+            callableStatement.setString(3, user.getCountry());
+            callableStatement.setInt(4,user.getId());
+            callableStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -108,9 +104,9 @@ public class RepositoryUserImpl implements IRepositoryUser {
     @Override
     public void delete(int id) throws SQLException {
         Connection connection=BaseRepository.getConnection();
-        PreparedStatement preparedStatement=connection.prepareStatement(DELETE);
-        preparedStatement.setInt(1,id);
-        preparedStatement.executeUpdate();
+        CallableStatement callableStatement=connection.prepareCall(DELETE);
+        callableStatement.setInt(1,id);
+        callableStatement.executeUpdate();
     }
 
     @Override

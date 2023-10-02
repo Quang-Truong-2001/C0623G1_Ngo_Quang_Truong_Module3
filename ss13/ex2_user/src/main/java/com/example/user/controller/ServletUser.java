@@ -8,6 +8,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "servlet", value = "/servlet-user")
 public class ServletUser extends HttpServlet {
@@ -64,6 +66,7 @@ public class ServletUser extends HttpServlet {
             requestDispatcher.forward(request,response);
         } else {
             service.delete(id);
+            response.sendRedirect("/servlet-user");
         }
     }
 

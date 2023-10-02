@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a52c0bbb-c854-4011-98c4-11848a34a8fe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ss08_bootstrap/ex1/ex1.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss08_bootstrap/ex1/ex1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/controller/ServletUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/controller/ServletUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/repository/impl/RepositoryUserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/repository/impl/RepositoryUserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/service/IServiceUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/service/IServiceUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/service/impl/ServiceUserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/java/com/example/user/service/impl/ServiceUserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/webapp/find.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/webapp/update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12_jdbc/user/src/main/webapp/update.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/Casestudy_Course_Management",
+    "last_opened_file_path": "E:/C0623G1_Ngo_Quang_Truong_Module3/ss06_ss08",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,6 +79,7 @@
       <workItem from="1695611630932" duration="1025000" />
       <workItem from="1695623429362" duration="4491000" />
       <workItem from="1695633744913" duration="33000" />
+      <workItem from="1696230198185" duration="1330000" />
     </task>
     <servers />
   </component>

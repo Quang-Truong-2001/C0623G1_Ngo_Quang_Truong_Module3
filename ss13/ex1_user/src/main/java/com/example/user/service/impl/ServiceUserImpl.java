@@ -29,11 +29,7 @@ public class ServiceUserImpl implements IServiceUser {
 
     @Override
     public void delete(int id) throws Exception {
-        if (detail(id) == null) {
-            throw new Exception("Khong tim thay");
-        } else {
-            repository.delete(id);
-        }
+        repository.delete(id);
     }
 
     @Override

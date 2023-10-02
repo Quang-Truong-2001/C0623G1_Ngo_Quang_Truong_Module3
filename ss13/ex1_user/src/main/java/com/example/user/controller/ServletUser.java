@@ -64,6 +64,7 @@ public class ServletUser extends HttpServlet {
             requestDispatcher.forward(request,response);
         } else {
             service.delete(id);
+            response.sendRedirect("/servlet-user");
         }
     }
 
